@@ -9,7 +9,7 @@ class PasswordTest {
     }
     @org.junit.jupiter.api.Test
     void passwordOfGivenLength(){
-        Password pWord = new Password("Password");
+        Password pWord = new Password(8);
         String spWord = new String();
         spWord = pWord.suggestPassword(8);
 
