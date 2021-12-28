@@ -14,18 +14,18 @@ public class Password {
     }
     //constructor
     public Password(int PasswordLength){
+        EncryptedPassword = EncryptPassword(suggestPassword(PasswordLength));
+    }
+
+    public String suggestPassword(int length){
         String nonEncryptedPassword = new String("");
         int rand = 0;
-        for (int x = 0; x<PasswordLength; x++){
+        for (int x = 0; x<length; x++){
             rand = (int)((Math.random() * (baseCharacters.length - min)) + min);
             nonEncryptedPassword=nonEncryptedPassword+baseCharacters[rand];
         }
         System.out.println(nonEncryptedPassword);
-        EncryptedPassword = EncryptPassword(nonEncryptedPassword);
-    }
-
-    public String suggestPassword(int length){
-        return "Password";
+        return nonEncryptedPassword;
     }
     public void printEncryptedPassword(){
         System.out.println(EncryptedPassword);

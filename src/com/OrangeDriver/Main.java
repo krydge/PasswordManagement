@@ -1,5 +1,7 @@
 package com.OrangeDriver;
 
+import com.OrangeDriver.logger.KSLogger;
+
 import java.util.Scanner;
 
 public class Main {
@@ -8,7 +10,8 @@ public class Main {
         Scanner userInput = new Scanner(System.in);
         System.out.println ("PassWordManager");
         String menuChoice = new String();
-
+        String [] sinks = {"File","Rolling"};
+        KSLogger logger = new KSLogger(sinks);
     boolean isActive = true;
     while(isActive) {
         System.out.println("Password Manager Menu");
@@ -20,10 +23,9 @@ public class Main {
         menuChoice=userInput.nextLine();
         switch(menuChoice){
             case "gen":
-                int minLength = 8;
+                int minLength = 16;
                 System.out.println("Generating a new Password");
                 Password password = new Password(minLength);
-                password.printEncryptedPassword();
                 password.printDecryptedPassword();
                 break;
             case "save":
