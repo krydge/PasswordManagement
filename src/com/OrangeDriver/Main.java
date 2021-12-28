@@ -20,8 +20,9 @@ public class Main {
         menuChoice=userInput.nextLine();
         switch(menuChoice){
             case "gen":
+                int minLength = 8;
                 System.out.println("Generating a new Password");
-                Password password = new Password(8);
+                Password password = new Password(minLength);
                 password.printEncryptedPassword();
                 password.printDecryptedPassword();
                 break;
